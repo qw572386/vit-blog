@@ -1,0 +1,14 @@
+.idea
+.idea/
+.DS_Store
+client/node_modules/
+server/node_modules/
+.project
+server/dist
+server/dist/*
+client/dist
+client/dist/*
+src/config/*.tmp
+src/config/env.js
+/index.html
+/index_prod.html
