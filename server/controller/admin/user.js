@@ -11,13 +11,14 @@ const register = async (ctx, next) => {
     } else {
       const pwd = md5(pwd);
       const user = new userShema({phone, pwd});
-      const resultData = await user.save();
-      if (resultData) {
-        ctx.body = result.sucess('新增用户成功')
-      }
+      await user.save();
+      ctx.body = result.sucess('新增用户成功')
     }
 
   } catch (e) {
     ctx.body = result.error(e.message)
   }
+}
+module.exports = {
+  register
 }
