@@ -9,12 +9,11 @@ const register = async (ctx, next) => {
     if (users.length > 0) {
       throw new Error('用户已存在')
     } else {
-      const pwd = md5(pwd);
-      const user = new userShema({phone, pwd});
+      const npwd = md5(pwd);
+      const user = new userShema({phone, pwd: npwd});
       await user.save();
       ctx.body = result.sucess('新增用户成功')
     }
-
   } catch (e) {
     ctx.body = result.error(e.message)
   }

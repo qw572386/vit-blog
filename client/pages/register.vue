@@ -2,7 +2,8 @@
   <el-card class="box-card">
     <div
       slot="header"
-      class="clearfix">
+      class="clearfix"
+    >
       <span>用户注册</span>
     </div>
     <el-form
@@ -11,7 +12,8 @@
       status-icon
       :rules="registerRules"
       label-width="100px"
-      class="demo-ruleForm">
+      class="demo-ruleForm"
+    >
       <el-form-item label="手机号" prop="phone">
         <el-input v-model.number="userData.phone" />
       </el-form-item>
@@ -34,7 +36,6 @@
 </template>
 <script>
 export default {
-  name: 'register',
   data() {
     const checkPhone = (rule, value, callback) => {
       if (!value) {
@@ -93,10 +94,11 @@ export default {
     }
   },
   methods: {
-    register({ phone, pwd }) {
+    register(payload) {
       this.$axios
-        .post(`/admin/register`, { phone, pwd })
+        .post(`http://127.0.0.1:5000/admin/register`, payload)
         .then(res => {
+          console.log(res)
           if (res.code === 0) {
             alert('注册成功')
           } else {
@@ -104,13 +106,13 @@ export default {
           }
         })
         .catch(err => {
-          alert(err.message)
+          alert(err)
         })
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.register(formName)
+          this.register(this.userData)
         } else {
           return false
         }
