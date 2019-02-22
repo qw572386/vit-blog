@@ -6,9 +6,9 @@ const sucess = (msg = '成功', data = {}) => {
     data
   }
 }
-const error = (msg = '失败', data = {}) => {
+const error = (msg = '失败', code = 1, data = {}) => {
   return {
-    code: 1,
+    code,
     msg,
     data
   }
