@@ -69,8 +69,19 @@ const verifyInfo = async (ctx, next) => {
     }
   }
 }
+const update = async (ctx, next) => {
+  try {
+    const userId = ctx.request.query.userId
+    const params = ctx.request.body
+    await userShema.findOneAndUpdate({ _id: userId }, params)
+    ctx.body = result.sucess('修改用户信息成功')
+  } catch (e) {
+    ctx.body = result.error('修改用户信息失败' + e.message)
+  }
+}
 module.exports = {
   register,
   login,
-  verifyInfo
+  verifyInfo,
+  update
 }
