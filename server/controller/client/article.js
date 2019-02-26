@@ -10,18 +10,6 @@ const get = async ctx => {
     ctx.body = result.error('获取文章列表失败' + e.message)
   }
 }
-const add = async ctx => {
-  try {
-    const params = ctx.request.body
-    console.log(params)
-    const article = new Article(params)
-    await article.save()
-    ctx.body = result.sucess('发布文章成功')
-  } catch (e) {
-    ctx.body = result.error('发布文章失败' + e.message)
-  }
-}
 module.exports = {
-  get,
-  add
+  get
 }
