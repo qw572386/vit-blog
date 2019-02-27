@@ -1,19 +1,7 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        vit-blog-client
-      </h1>
-      <h2 class="subtitle">
-        My outstanding Nuxt.js project
-      </h2>
-      <div class="links">
-        <nuxt-link to="/register">
-          注册
-        </nuxt-link>
-      </div>
-    </div>
-  </section>
+  <div>
+    sfsd
+  </div>
 </template>
 
 <script>

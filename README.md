@@ -4,8 +4,6 @@
 ### 目录结构
 
     |-- .gitignore
-    |-- package-lock.json
-    |-- package.json
     |-- client                             客户端
     |   |-- .babelrc
     |   |-- .editorconfig
