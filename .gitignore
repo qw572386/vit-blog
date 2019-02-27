@@ -12,3 +12,6 @@ src/config/*.tmp
 src/config/env.js
 /index.html
 /index_prod.html
+node_modules/
+package.json
+package-lock.json
